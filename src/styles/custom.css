@@ -1,0 +1,109 @@
+/* Engineering laboratory palette: quiet contrast, slate surfaces, and graphite borders. */
+:root {
+	--sl-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, ui-monospace, monospace;
+	--sl-color-white: #f4f5f3;
+	--sl-color-gray-1: #e2e5e3;
+	--sl-color-gray-2: #c8cecb;
+	--sl-color-gray-3: #aab3af;
+	--sl-color-gray-4: #7b8681;
+	--sl-color-gray-5: #56605b;
+	--sl-color-gray-6: #3a423e;
+	--sl-color-gray-7: #272d2a;
+	--sl-color-black: #171a19;
+	--sl-color-accent-low: #d8e0e2;
+	--sl-color-accent: #5d7482;
+	--sl-color-accent-high: #263d4a;
+	--sl-color-bg: #f1f3f1;
+	--sl-color-bg-nav: #e8ece9;
+	--sl-color-bg-sidebar: #edf0ee;
+	--sl-color-bg-inline-code: #e4e8e5;
+	--sl-color-hairline-light: #d3d9d6;
+	--sl-color-hairline: #bcc5c0;
+	--sl-color-hairline-shade: #aab4af;
+}
+
+:root[data-theme='dark'] {
+	--sl-color-white: #e3e7e8;
+	--sl-color-gray-1: #c1c9cb;
+	--sl-color-gray-2: #9da8ac;
+	--sl-color-gray-3: #78858b;
+	--sl-color-gray-4: #5d6970;
+	--sl-color-gray-5: #434e55;
+	--sl-color-gray-6: #30393f;
+	--sl-color-gray-7: #242b30;
+	--sl-color-black: #171c20;
+	--sl-color-accent-low: #29363e;
+	--sl-color-accent: #8fa5b0;
+	--sl-color-accent-high: #d0dce0;
+	--sl-color-bg: #1b2024;
+	--sl-color-bg-nav: #20262b;
+	--sl-color-bg-sidebar: #1e252a;
+	--sl-color-bg-inline-code: #293137;
+	--sl-color-hairline-light: #303a40;
+	--sl-color-hairline: #414d54;
+	--sl-color-hairline-shade: #56636a;
+}
+
+pre,
+code {
+	font-family: var(--sl-font-mono);
+	font-variant-ligatures: contextual;
+}
+
+pre {
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.35rem;
+	background: var(--sl-color-bg-inline-code);
+	box-shadow: none;
+	overflow-x: auto;
+}
+
+pre code {
+	border: 0;
+	background: transparent;
+}
+
+:not(pre) > code {
+	border: 1px solid var(--sl-color-hairline-light);
+	border-radius: 0.2rem;
+	background: var(--sl-color-bg-inline-code);
+	padding: 0.12em 0.35em;
+	font-size: 0.9em;
+}
+
+blockquote {
+	position: relative;
+	margin-inline: 0;
+	border-inline-start: 3px solid var(--sl-color-accent);
+	border-block: 1px dashed var(--sl-color-hairline);
+	border-inline-end: 1px dashed var(--sl-color-hairline);
+	background: color-mix(in srgb, var(--sl-color-accent-low) 24%, transparent);
+	padding: 1.1rem 1.25rem 1rem;
+	color: var(--sl-color-gray-2);
+	font-size: 0.96em;
+}
+
+blockquote::before {
+	content: 'NOTA DE CAMPO';
+	display: block;
+	margin-bottom: 0.65rem;
+	color: var(--sl-color-accent);
+	font-family: var(--sl-font-mono);
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+}
+
+blockquote > :first-child {
+	margin-top: 0;
+}
+
+blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: 50rem) {
+	blockquote {
+		padding: 0.9rem 1rem 0.85rem;
+	}
+}

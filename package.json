@@ -10,8 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.4",
     "@astrojs/starlight": "^0.41.8",
-    "astro": "^7.1.6",
+    "astro": "^7.2.6",
+    "katex": "^0.18.4",
+    "mermaid": "^11.17.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "sharp": "^0.35.3"
   },
   "allowScripts": {

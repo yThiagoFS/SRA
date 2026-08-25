@@ -1,0 +1,32 @@
+---
+import DefaultHead from '@astrojs/starlight/components/Head.astro';
+import 'katex/dist/katex.min.css';
+---
+
+<DefaultHead {...Astro.props} />
+
+<script>
+	let mermaidPromise;
+
+	async function renderMermaid() {
+		const blocks = document.querySelectorAll('pre[data-language="mermaid"]');
+		const targets = [];
+
+		for (const block of blocks) {
+			const container = document.createElement('div');
+			container.className = 'mermaid';
+			container.textContent = block.textContent ?? '';
+			(block.closest('.expressive-code') ?? block).replaceWith(container);
+			targets.push(container);
+		}
+
+		if (targets.length > 0) {
+			mermaidPromise ??= import('mermaid');
+			const { default: mermaid } = await mermaidPromise;
+			mermaid.initialize({ startOnLoad: false, theme: 'dark', securityLevel: 'loose' });
+			await mermaid.run({ nodes: targets });
+		}
+	}
+
+	document.addEventListener('astro:page-load', renderMermaid);
+</script>
